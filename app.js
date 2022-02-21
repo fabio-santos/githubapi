@@ -1,12 +1,8 @@
 const express = require('express');
 const request = require('request');
-const server = express();
+const app = express();
 
-server.get('/', (req, res) => {
-    response.send('Hello World!');
-});
-
-server.get('/users', (req, res) => {
+app.get('/users', (req, res) => {
     try {
         const since = req.query.since || '0';
         
@@ -21,7 +17,7 @@ server.get('/users', (req, res) => {
     }
 });
 
-server.get('/users/:login/details', (req, res) => {
+app.get('/users/:login/details', (req, res) => {
     try {        
         request({
             uri: `https://api.github.com/users/${req.params.login}`,
@@ -34,7 +30,7 @@ server.get('/users/:login/details', (req, res) => {
     }
 });
 
-server.get('/users/:login/repos', (req, res) => {
+app.get('/users/:login/repos', (req, res) => {
     try {        
         request({
             uri: `https://api.github.com/users/${req.params.login}/repos`,
@@ -47,6 +43,4 @@ server.get('/users/:login/repos', (req, res) => {
     }
 });
 
-server.listen(3000, () => {
-    console.log(`Server UP!`)
-});
+module.exports = app;
