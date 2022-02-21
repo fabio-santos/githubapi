@@ -1,0 +1,11 @@
+{
+    "name": "githubapi-express",
+    "version": "1.0.0",
+    "description": "Api that fetch users from github",
+    "author": "fabio",
+    "main": "index.js",
+    "dependencies": {
+        "express": "^4.17.2",
+        "request": "^2.88.2"
+    }
+}
