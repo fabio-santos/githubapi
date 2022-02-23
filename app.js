@@ -2,6 +2,10 @@ const express = require('express');
 const request = require('request');
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('OK');
+});
+
 app.get('/users', (req, res) => {
     try {
         const since = req.query.since || '0';
